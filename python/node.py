@@ -1,11 +1,10 @@
 from abc import ABC, abstractmethod
+from attrs import define
 
+@define
 class Node(ABC):
     """Base compute node interface"""
-
-    def __init__(self, name: str):
-        """Initialize a node instance with a unique name"""
-        self.name = name
+    name: str
 
     @abstractmethod
     def run(self, inputs: dict[str, object]) -> dict[str, object]:
